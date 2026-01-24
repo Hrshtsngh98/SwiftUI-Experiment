@@ -54,7 +54,7 @@ struct MatrixTapCell: View {
                 .padding(.horizontal, 8)
             }
         }
-        .onAppear {
+        .task {
             matrix = prepareMatrix()
         }
     }
