@@ -14,7 +14,7 @@ struct SwiftUI_ExperimentApp: App {
     
     var body: some Scene {
         WindowGroup {
-            TabViewTestView()
+            TopViewTransition()
                 .task {
                     connectivityHelper.startMonitoring()
                 }
