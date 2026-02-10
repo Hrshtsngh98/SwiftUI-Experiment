@@ -41,20 +41,16 @@ struct TopViewTransition: View {
     }
     
     var sheetView: some View {
-        VStack {
-            GeometryReader { geo in
-                ZStack {
-                    Color.blue.opacity(0.5)
-                    VStack {
-                        Text("Top sheet")
-                    }
-                }
-                .frame(width: geo.size.width, height: 300)
-                .clipShape(.rect(corners: .concentric))
+        GeometryReader { geo in
+            VStack {
+                Text("Top Sheet View")
             }
+            .frame(width: geo.size.width, height: 300)
+            .background(Color.green.opacity(0.4))
+            .clipShape(.containerRelative)
         }
+        .contentShape(.rect)
         .ignoresSafeArea()
-        .contentShape(.rect) // tap outside blue area
         .onTapGesture {
             withAnimation {
                 showTopSheet.toggle()
