@@ -25,6 +25,8 @@ struct DebounceBehaviorView: View {
                     return
                 }
                 
+                try? await Task.sleep(for: .seconds(3))
+                
                 if Task.isCancelled {
                     return
                 }
@@ -35,8 +37,8 @@ struct DebounceBehaviorView: View {
     }
     
     func searchText(text: String) async {
+        print("Searching", text)
         let searchText = text.lowercased()
-        try? await Task.sleep(for: .seconds(5))
         filteredData = ExampleData.data.filter({ $0.contains(searchText) })
     }
 }
